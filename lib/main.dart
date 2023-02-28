@@ -49,6 +49,9 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  String _text = 'Genap';
+  String _kelipatan = '';
+  String _prima = '';
 
   void _incrementCounter() {
     setState(() {
@@ -57,7 +60,37 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
+      if(_counter == 10) _counter = 0;
       _counter++;
+      _text = 'Genap';
+      if(_counter%2 != 0) {
+        _text = 'Ganjil: 1';
+
+        for(int i=3; i<=_counter; i+=2){
+          _text += ', $i';
+        }
+      }
+
+      _kelipatan = 'Kelipatan : ';
+      for(int i=1; i<=_counter; i+=3){
+        if(i>1) _kelipatan += ', ';
+        _kelipatan += '$i';
+      }
+
+      _prima = 'Bilangan Prima : ';
+      for(int i=2; i<=_counter; i++){
+        String tempPrima = '';
+        for(int j=2; j<=i; j++){
+          if(j==i && i!=2) break;
+          if(i%j == 0 && i != 2){
+            tempPrima = '';
+            break;
+          } else {
+            tempPrima = '$i ';
+          }
+        }
+        _prima += tempPrima;
+      }
     });
   }
 
@@ -96,10 +129,22 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'M Rijal Al Fariz 3122640019:',
+              'Hello world, M Rijal Al Fariz 3122640019:',
             ),
             Text(
               '$_counter',
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+            Text(
+              _text,
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+            Text(
+              _kelipatan,
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+            Text(
+              _prima,
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
