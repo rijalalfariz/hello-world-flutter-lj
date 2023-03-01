@@ -60,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      if(_counter == 10) _counter = 0;
+      // if(_counter == 10) _counter = 0;
       _counter++;
       _text = 'Genap';
       if(_counter%2 != 0) {
@@ -76,7 +76,8 @@ class _MyHomePageState extends State<MyHomePage> {
         _kelipatan += ' $i';
       }
 
-      _prima = 'Bilangan Prima :';
+      _prima = 'Bilangan prima :';
+      // _prima = 'Bilangan prima :';
       for(int i=2; i<=_counter; i++){
         String tempPrima = '';
         for(int j=2; j<=i; j++){
