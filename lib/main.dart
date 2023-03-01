@@ -64,20 +64,19 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
       _text = 'Genap';
       if(_counter%2 != 0) {
-        _text = 'Ganjil: 1';
+        _text = 'Ganjil:';
 
-        for(int i=3; i<=_counter; i+=2){
-          _text += ', $i';
+        for(int i=1; i<=_counter; i+=2){
+          _text += ' $i';
         }
       }
 
-      _kelipatan = 'Kelipatan : ';
+      _kelipatan = 'Kelipatan :';
       for(int i=1; i<=_counter; i+=3){
-        if(i>1) _kelipatan += ', ';
-        _kelipatan += '$i';
+        _kelipatan += ' $i';
       }
 
-      _prima = 'Bilangan Prima : ';
+      _prima = 'Bilangan Prima :';
       for(int i=2; i<=_counter; i++){
         String tempPrima = '';
         for(int j=2; j<=i; j++){
@@ -86,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
             tempPrima = '';
             break;
           } else {
-            tempPrima = '$i ';
+            tempPrima = ' $i';
           }
         }
         _prima += tempPrima;
